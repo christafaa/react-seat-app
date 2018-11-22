@@ -27,7 +27,7 @@ export default class SeatMap extends Component {
     const rows = []
     let seats = this.props.concert.seats.slice()
     while (seats.length > 1) {
-      rows.push(<Row seats={seats.splice(0, 10)} addSelection={this.addSelection} removeSelection={this.removeSelection} />)
+      rows.push(<Row seats={seats.splice(0, 7)} addSelection={this.addSelection} removeSelection={this.removeSelection} />)
     }
     return rows
   }

@@ -9,7 +9,9 @@ export default class Row extends Component {
   render() {
     return (
       <div className="row">
-        {this.renderSeats()}
+        <div className="center">
+          {this.renderSeats()}
+        </div>
       </div>
     )
   }

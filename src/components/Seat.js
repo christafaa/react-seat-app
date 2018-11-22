@@ -14,6 +14,7 @@ export default class Seat extends Component {
       this.setState({
         color: "yellow"
       })
+      this.props.updateSelection(this.props.seat.number)
     } else if (this.state.color === "yellow") {
       this.setState({
         color: "red"

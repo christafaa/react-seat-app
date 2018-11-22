@@ -4,11 +4,24 @@ import PurchaseForm from './PurchaseForm';
 
 export default class SeatMap extends Component {
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      selectedSeats: []
+    }
+  }
+
+  updateSelection = number => {
+    this.setState({
+      selectedSeats: [...this.state.selectedSeats, number]
+    })
+  }
+
   createRows = () => {
     const rows = []
     const seats = this.props.concert.seats
     while (seats.length > 1) {
-      rows.push(<Row seats={seats.splice(0, 10)} />)
+      rows.push(<Row updateSelection={this.updateSelection} seats={seats.splice(0, 10)} />)
     }
     return rows
   }
@@ -22,7 +35,7 @@ export default class SeatMap extends Component {
           Location: {this.props.concert.venue}<br/>
           {this.createRows()}
         </div>
-        <PurchaseForm />
+        <PurchaseForm selectedSeats={this.state.selectedSeats}/>
       </React.Fragment>
     )
   }

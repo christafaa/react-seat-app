@@ -38,8 +38,16 @@
   padding: 20px;
 }
 
-.nine.columns  {
+.eight.columns  {
   background-color: #DCDCDC;
   border-radius: 25px;
   padding: 20px;
+}
+
+.available {
+  background-color: red;
+}
+
+.unavailable {
+  background-color: black;
 }

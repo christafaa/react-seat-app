@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import Seat from './Seat';
 
 export default class Row extends Component {
   renderSeats = () => {
-    return this.props.seats.map(seat => ` ${seat.number} `)
+    return this.props.seats.map(seat => <Seat seat={seat}/>)
   }
 
   render() {
     return (
-      <div>
+      <div className="row">
         {this.renderSeats()}
       </div>
     )

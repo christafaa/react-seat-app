@@ -49,5 +49,16 @@
 }
 
 .unavailable {
-  background-color: black;
+  background-color: grey;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.seat {
+  height: 50px;
+  width: 50px;
+  margin: 5px;
 }

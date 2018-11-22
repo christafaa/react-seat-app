@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Concert from '../components/Concert';
+import SeatMap from '../components/SeatMap';
 
 export default class ConcertsContainer extends Component {
 
@@ -22,15 +24,20 @@ export default class ConcertsContainer extends Component {
 
   renderConcerts = () => {
     return this.state.concerts.map(function(concert){
-      return <p>{concert.title}</p>
+      return <p><Concert title={concert.title}/></p>
     })
   }
 
   render() {
     return (
-      <div className="ConcertsContainer">
-        {this.renderConcerts()}
-      </div>
+      <React.Fragment>
+        <span>
+          <div className="three columns">
+            {this.renderConcerts()}
+          </div>
+        </span>
+        <SeatMap />
+      </React.Fragment>
     )
   }
 }

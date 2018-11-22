@@ -46,14 +46,6 @@
   margin: 5px;
 }
 
-.available {
-  background-color: red;
-}
-
-.unavailable {
-  background-color: grey;
-}
-
 .row {
   display: flex;
   flex-direction: row;

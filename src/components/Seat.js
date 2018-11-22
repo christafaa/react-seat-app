@@ -2,13 +2,28 @@ import React, { Component } from 'react';
 
 export default class Seat extends Component {
 
-  checkAvailability = () => {
-    return this.props.seat.attendee_id ? "seat unavailable" : "seat available"
+  constructor(props) {
+    super(props)
+    this.state = {
+      color: this.props.seat.attendee_id ? "grey" : "red"
+    }
+  }
+
+  handleOnClick = () => {
+    if (this.state.color === "red") {
+      this.setState({
+        color: "yellow"
+      })
+    } else if (this.state.color === "yellow") {
+      this.setState({
+        color: "red"
+      })
+    }
   }
 
   render() {
     return (
-      <div className={this.checkAvailability()}>
+      <div onClick={this.handleOnClick} style={{backgroundColor: this.state.color}} className="seat">
         {this.props.seat.number}
       </div>
     )

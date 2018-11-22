@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
-import ConcertsContainer from './containers/concertsContainer.js'
+import ConcertsContainer from './containers/ConcertsContainer.js'
 
 class App extends Component {
   render() {

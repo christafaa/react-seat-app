@@ -11,17 +11,23 @@ export default class SeatMap extends Component {
     }
   }
 
-  updateSelection = number => {
+  addSelection = number => {
     this.setState({
       selectedSeats: [...this.state.selectedSeats, number]
     })
   }
 
+  removeSelection = number => {
+    this.setState({
+      selectedSeats: this.state.selectedSeats.filter(seat => seat !== number)
+    })
+  }
+
   createRows = () => {
     const rows = []
-    const seats = this.props.concert.seats
+    let seats = this.props.concert.seats.slice()
     while (seats.length > 1) {
-      rows.push(<Row updateSelection={this.updateSelection} seats={seats.splice(0, 10)} />)
+      rows.push(<Row seats={seats.splice(0, 10)} addSelection={this.addSelection} removeSelection={this.removeSelection} />)
     }
     return rows
   }

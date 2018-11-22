@@ -4,7 +4,6 @@ export default class PurchaseForm extends Component {
 
   state = {
     attendee: "",
-    seats: this.props.selectedSeats
   }
 
   handleOnChange = event => {
@@ -14,7 +13,7 @@ export default class PurchaseForm extends Component {
   }
 
   renderSelection = () => {
-    return this.state.seats.join(", ")
+    return this.props.selectedSeats.join(", ")
   }
 
   render() {

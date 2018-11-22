@@ -36,12 +36,14 @@
   background-color: #DCDCDC;
   border-radius: 25px;
   padding: 20px;
+  margin: 5px 10px 0px 0px;
 }
 
-.eight.columns  {
+.seven.columns  {
   background-color: #DCDCDC;
   border-radius: 25px;
   padding: 20px;
+  margin: 5px;
 }
 
 .available {
@@ -60,5 +62,15 @@
 .seat {
   height: 50px;
   width: 50px;
-  margin: 5px;
+  margin: 10px;
+}
+
+.selected-seats {
+  height: 38px;
+  padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
+  background-color: #fff;
+  border: 1px solid #D1D1D1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
 }

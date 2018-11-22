@@ -17,9 +17,9 @@ export default class ConcertsContainer extends Component {
           attendees: [],
           seats: [
             {number: 1, attendee_id: 3}, {number: 2, attendee_id: null}, {number: 3, attendee_id: null}, {number: 4, attendee_id: null}, {number: 5, attendee_id: null},
-            {number: 6, attendee_id: null}, {number: 7, attendee_id: null}, {number: 8, attendee_id: null}, {number: 9, attendee_id: null}, {number: 10, attendee_id: null},
+            {number: 6, attendee_id: 6}, {number: 7, attendee_id: null}, {number: 8, attendee_id: null}, {number: 9, attendee_id: null}, {number: 10, attendee_id: null},
             {number: 11, attendee_id: null}, {number: 12, attendee_id: 4}, {number: 13, attendee_id: null}, {number: 14, attendee_id: null}, {number: 15, attendee_id: null},
-            {number: 16, attendee_id: null}, {number: 17, attendee_id: null}, {number: 18, attendee_id: null}, {number: 19, attendee_id: null}, {number: 20, attendee_id: null}
+            {number: 16, attendee_id: null}, {number: 17, attendee_id: null}, {number: 18, attendee_id: null}, {number: 19, attendee_id: 8}, {number: 20, attendee_id: null}
           ]
         },
         {title: "Concert 2"},
@@ -43,11 +43,9 @@ export default class ConcertsContainer extends Component {
   render() {
     return (
       <React.Fragment>
-        <span>
-          <div className="three columns">
-            {this.renderConcerts()}
-          </div>
-        </span>
+        <div className="three columns">
+          {this.renderConcerts()}
+        </div>
         <SeatMap concert={this.state.concerts[0]}/>
       </React.Fragment>
     )

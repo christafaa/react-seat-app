@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class Seat extends Component {
 
   checkAvailability = () => {
-    return this.props.seat.attendee_id ? "seat available" : "seat unavailable"
+    return this.props.seat.attendee_id ? "seat unavailable" : "seat available"
   }
 
   render() {

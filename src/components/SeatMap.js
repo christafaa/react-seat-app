@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Row from './Row';
+import PurchaseForm from './PurchaseForm';
 
 export default class SeatMap extends Component {
 
@@ -7,19 +8,22 @@ export default class SeatMap extends Component {
     const rows = []
     const seats = this.props.concert.seats
     while (seats.length > 1) {
-      rows.push(<Row seats={seats.splice(0, 5)} />)
+      rows.push(<Row seats={seats.splice(0, 10)} />)
     }
     return rows
   }
 
   render() {
     return (
-      <div className="eight columns">
-        <h5><strong>Title: {this.props.concert.title}</strong></h5>
-        Date: {this.props.concert.date}<br/>
-        Location: {this.props.concert.venue}<br/>
-        {this.createRows()}
-      </div>
+      <React.Fragment>
+        <div className="seven columns">
+          <h5><strong>Title: {this.props.concert.title}</strong></h5>
+          Date: {this.props.concert.date}<br/>
+          Location: {this.props.concert.venue}<br/>
+          {this.createRows()}
+        </div>
+        <PurchaseForm />
+      </React.Fragment>
     )
   }
 }

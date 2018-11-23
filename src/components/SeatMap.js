@@ -24,7 +24,7 @@ class SeatMap extends Component {
           Location: {this.props.concert.venue}<br/>
           {this.createRows()}
         </div>
-        <PurchaseForm selectedSeats={this.props.selectedSeats.selectedSeats}/> //this doesn't look right
+        <PurchaseForm selectedSeats={this.props.selectedSeats.selectedSeats}/> {/*this doesn't look right*/}
       </React.Fragment>
     )
   }

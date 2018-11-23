@@ -1,33 +1,15 @@
 import React, { Component } from 'react';
 import Row from './Row';
 import PurchaseForm from './PurchaseForm';
+import { connect } from 'react-redux'
 
-export default class SeatMap extends Component {
-
-  constructor(props) {
-    super(props)
-    this.state = {
-      selectedSeats: []
-    }
-  }
-
-  addSelection = number => {
-    this.setState({
-      selectedSeats: [...this.state.selectedSeats, number]
-    })
-  }
-
-  removeSelection = number => {
-    this.setState({
-      selectedSeats: this.state.selectedSeats.filter(seat => seat !== number)
-    })
-  }
+class SeatMap extends Component {
 
   createRows = () => {
     const rows = []
     let seats = this.props.concert.seats.slice()
     while (seats.length > 1) {
-      rows.push(<Row seats={seats.splice(0, 7)} addSelection={this.addSelection} removeSelection={this.removeSelection} />)
+      rows.push(<Row seats={seats.splice(0, 7)} />)
     }
     return rows
   }
@@ -37,12 +19,21 @@ export default class SeatMap extends Component {
       <React.Fragment>
         <div className="seven columns">
           <h5><strong>Title: {this.props.concert.title}</strong></h5>
+          <p><a href="#">Seat View</a> | <a href="#">List View</a></p>
           Date: {this.props.concert.date}<br/>
           Location: {this.props.concert.venue}<br/>
           {this.createRows()}
         </div>
-        <PurchaseForm selectedSeats={this.state.selectedSeats}/>
+        <PurchaseForm selectedSeats={this.props.selectedSeats.selectedSeats}/> //this doesn't look right
       </React.Fragment>
     )
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    selectedSeats: state.selectedSeats
+  }
+}
+
+export default connect(mapStateToProps)(SeatMap)

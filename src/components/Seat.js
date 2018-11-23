@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addSelection, removeSelection } from '../actions/seats';
 
-export default class Seat extends Component {
+class Seat extends Component {
 
   constructor(props) {
     super(props)
@@ -32,3 +34,5 @@ export default class Seat extends Component {
     )
   }
 }
+
+export default connect(null, {addSelection, removeSelection})(Seat)

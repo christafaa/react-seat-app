@@ -1,5 +1,5 @@
 export default function seatReducer(state = {
-  data: []
+  data: {title: "Loading", date: "Loading", venue: "Loading", seats: []}
 }, action) {
 
   switch(action.type) {

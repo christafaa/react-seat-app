@@ -20,13 +20,18 @@ class ConcertsContainer extends Component {
     return this.props.concerts.map(concert => <Concert key={concert.id} title={concert.title} handleOnClick={this.handleOnClick} />)
   }
 
+  checkProps = () => {
+    console.log(this.props)
+  }
+
   render() {
     return (
       <React.Fragment>
         <div className="three columns">
           {this.renderConcerts()}
         </div>
-        <SeatMap concert={this.props.seatmap}/>
+          {this.checkProps()}
+          <SeatMap concert={this.props.seatmap}/>
       </React.Fragment>
     )
   }

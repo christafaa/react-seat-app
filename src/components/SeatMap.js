@@ -7,9 +7,9 @@ class SeatMap extends Component {
 
   createRows = () => {
     const rows = []
-    let seats = this.props.concert.seats.slice()
+    const seats = this.props.concert.seats.slice()
     while (seats.length > 1) {
-      rows.push(<Row seats={seats.splice(0, 7)} />)
+      rows.push(<Row seats={seats.splice(0, 10)} />)
     }
     return rows
   }
@@ -21,7 +21,7 @@ class SeatMap extends Component {
           <h5><strong>Title: {this.props.concert.title}</strong></h5>
           <p><a href="#">Seat View</a> | <a href="#">List View</a></p>
           Date: {this.props.concert.date}<br/>
-          Location: {this.props.concert.venue}<br/>
+          Location: {this.props.concert.location}<br/>
           {this.createRows()}
         </div>
         <PurchaseForm selectedSeats={this.props.selectedSeats.selectedSeats}/> {/*this doesn't look right*/}

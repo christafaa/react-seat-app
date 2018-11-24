@@ -1,6 +1,7 @@
 export default function seatReducer(state = {
   selectedSeats: []
 }, action) {
+
   switch(action.type) {
 
     case 'ADD_SELECTION':

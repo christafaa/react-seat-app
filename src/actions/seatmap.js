@@ -6,3 +6,12 @@ export const fetchSeatmap = (id) => {
       .then(seatmap => dispatch({ type: 'ADD_SEATMAP', payload: seatmap }));
   };
 };
+
+export const submitPurchase = (concertId, seatIds) => {
+  return (dispatch) => {
+    dispatch({ type: 'PURCHASE_SEATS' });
+    return fetch(`http://localhost:3000/concerts/${}`)
+      .then(response => response.json())
+      .then(seatmap => dispatch({ type: 'ADD_SEATMAP', payload: seatmap }));
+  };
+};

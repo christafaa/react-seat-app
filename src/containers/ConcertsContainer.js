@@ -3,7 +3,8 @@ import Concert from '../components/Concert';
 import SeatMap from '../components/SeatMap';
 import { connect } from 'react-redux';
 import { fetchConcerts } from '../actions/concerts';
-import { fetchSeatmap } from '../actions/seatmap'
+import { fetchSeatmap } from '../actions/seatmap';
+import { clearSelection } from '../actions/seats';
 
 class ConcertsContainer extends Component {
 
@@ -23,6 +24,7 @@ class ConcertsContainer extends Component {
       selectedConcert: id
     })
     this.props.fetchSeatmap(id)
+    this.props.clearSelection()
   }
 
   renderConcerts = () => {
@@ -58,4 +60,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {fetchConcerts, fetchSeatmap})(ConcertsContainer)
+export default connect(mapStateToProps, {fetchConcerts, fetchSeatmap, clearSelection})(ConcertsContainer)

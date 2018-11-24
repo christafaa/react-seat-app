@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 class SeatMap extends Component {
 
   createRows = () => {
-    console.log(this.props.concert)
+    
     const rows = []
     const seats = this.props.concert.seats.slice()
     let rowNumber = 1

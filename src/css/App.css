@@ -60,10 +60,10 @@
 }
 
 .seat {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   margin: 5px;
-  line-height: 50px;
+  line-height: 40px;
   border-radius: 5px;
 }
 

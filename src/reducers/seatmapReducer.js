@@ -5,10 +5,13 @@ export default function seatReducer(state = {
   switch(action.type) {
 
     case 'FETCH_SEATMAP':
-      return { ...state }
+      return state
 
     case 'ADD_SEATMAP':
       return { data: action.payload }
+
+    case 'PURCHASE_SEATS':
+      return state
 
     default:
       return state;

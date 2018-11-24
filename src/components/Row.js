@@ -3,7 +3,7 @@ import Seat from './Seat';
 
 export default class Row extends Component {
   renderSeats = () => {
-    return this.props.seats.map(seat => <Seat seat={seat} />)
+    return this.props.seats.map(seat => <Seat key={seat.id} seat={seat} />)
   }
 
   render() {

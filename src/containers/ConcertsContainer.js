@@ -22,11 +22,11 @@ class ConcertsContainer extends Component {
     this.setState({
       selectedConcert: id
     })
-    this.props.fetchSeats(id)
+    this.props.fetchSeatmap(id)
   }
 
   renderConcerts = () => {
-    return this.props.concerts.map(concert => <Concert key={concert.id} title={concert.title} handleOnClick={this.handleOnClick} />)
+    return this.props.concerts.map(concert => <Concert key={concert.id} id={concert.id} title={concert.title} handleOnClick={this.handleOnClick} />)
   }
 
   renderSeatmap = () => {

@@ -6,10 +6,13 @@ import { connect } from 'react-redux'
 class SeatMap extends Component {
 
   createRows = () => {
+    console.log(this.props.concert)
     const rows = []
     const seats = this.props.concert.seats.slice()
+    let rowNumber = 1
     while (seats.length > 1) {
-      rows.push(<Row seats={seats.splice(0, 10)} />)
+      rows.push(<Row key={`${this.props.concert.title} row ${rowNumber}`} seats={seats.splice(0, 10)} />)
+      rowNumber += 1
     }
     return rows
   }
@@ -19,7 +22,7 @@ class SeatMap extends Component {
       <React.Fragment>
         <div className="seven columns">
           <h5><strong>Title: {this.props.concert.title}</strong></h5>
-          <p><a href="#">Seat View</a> | <a href="#">List View</a></p>
+          <p><button>Seat View</button> | <button>List View</button></p>
           Date: {this.props.concert.date}<br/>
           Location: {this.props.concert.location}<br/>
           {this.createRows()}

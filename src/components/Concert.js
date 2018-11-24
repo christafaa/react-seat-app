@@ -10,6 +10,3 @@ export default class Concert extends Component {
     )
   }
 }
-
-
-// onClick={() => this.props.handleOnClick(this.props.concert.id)}

@@ -1,36 +1,18 @@
 import React, { Component } from 'react';
-// import SeatMap from '../components/SeatMap';
+import SeatMap from '../components/SeatMap';
 import { connect } from 'react-redux';
-import { clearSelection } from '../actions/seats';
+import { fetchSeatmap } from '../actions/seatmap';
 
 class SeatMapContainer extends Component {
 
   componentDidMount() {
-    this.props.fetchConcerts()
-  }
-
-  constructor(props) {
-    super(props)
-    this.state = {
-      selectedConcert: null
-    }
-  }
-
-  renderSeatmap = () => {
-    // this.props.clearSelection()
-    // if (this.state.selectedConcert === null) {
-    //   return <div/>
-    // }
-    // else {
-    //   return <SeatMap concert={this.props.seatmap} concertId={this.state.selectedConcert}/>
-    // }
-    console.log(this.props.seatmapId)
+    this.props.fetchSeatmap(this.props.seatmapId)
   }
 
   render() {
     return (
       <div className="seat-map">
-        {this.renderSeatmap()}
+        <SeatMap concert={this.props.seatmap} concertId={this.props.seatmapId}/>
       </div>
     )
   }
@@ -42,4 +24,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {clearSelection})(SeatMapContainer)
+export default connect(mapStateToProps, { fetchSeatmap })(SeatMapContainer)

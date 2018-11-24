@@ -7,10 +7,14 @@ export const fetchSeatmap = (id) => {
   };
 };
 
-export const submitPurchase = (concertId, seatIds) => {
+export const submitPurchase = (concertId, seatIds, attendeeName) => {
   return (dispatch) => {
     dispatch({ type: 'PURCHASE_SEATS' });
-    return fetch(`http://localhost:3000/concerts/${}`)
+    return fetch(`http://localhost:3000/concerts/${concertId}`, {
+      method: 'PATCH',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({concert: {seatIds: seatIds, attendeeName: attendeeName}})
+    })
       .then(response => response.json())
       .then(seatmap => dispatch({ type: 'ADD_SEATMAP', payload: seatmap }));
   };

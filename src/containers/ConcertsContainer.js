@@ -36,7 +36,7 @@ class ConcertsContainer extends Component {
       return <div/>
     }
     else {
-      return <SeatMap concert={this.props.seatmap}/>
+      return <SeatMap concert={this.props.seatmap} concertId={this.state.selectedConcert}/>
     }
   }
 

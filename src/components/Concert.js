@@ -5,8 +5,11 @@ export default class Concert extends Component {
   render() {
     return (
       <div className="concert">
-        <h5><NavLink to={`/concerts/${this.props.id}`} onClick={() => this.props.handleOnClick(this.props.id)}>{this.props.title}</NavLink></h5>
+        <h5><NavLink to={`/concerts/${this.props.concert.id}`}>{this.props.concert.title}</NavLink></h5>
       </div>
     )
   }
 }
+
+
+// onClick={() => this.props.handleOnClick(this.props.concert.id)}

@@ -2,47 +2,21 @@ import React, { Component } from 'react';
 import Concert from '../components/Concert';
 import SeatMap from '../components/SeatMap';
 import { connect } from 'react-redux';
+import { fetchConcerts } from '../actions/concerts';
+import { fetchSeats } from '../actions/seats'
 
 class ConcertsContainer extends Component {
 
   componentDidMount() {
-
+    this.props.fetchConcerts()
   }
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      selectedConcert: {},
-      concerts: [
-        {
-          title: "Concert 1",
-          date: "December 3, 2018",
-          venue: "Alice Tully Hall",
-          attendees: [],
-          seats: [
-            {number: 1, attendee_id: 3}, {number: 2, attendee_id: null}, {number: 3, attendee_id: null}, {number: 4, attendee_id: null}, {number: 5, attendee_id: null},
-            {number: 6, attendee_id: 6}, {number: 7, attendee_id: null}, {number: 8, attendee_id: null}, {number: 9, attendee_id: null}, {number: 10, attendee_id: null},
-            {number: 11, attendee_id: null}, {number: 12, attendee_id: 4}, {number: 13, attendee_id: null}, {number: 14, attendee_id: null}, {number: 15, attendee_id: null},
-            {number: 16, attendee_id: null}, {number: 17, attendee_id: null}, {number: 18, attendee_id: null}, {number: 19, attendee_id: 8}, {number: 20, attendee_id: null}
-          ]
-        },
-        {title: "Concert 2"},
-        {title: "Concert 3"},
-        {title: "Concert 4"},
-        {title: "Concert 5"},
-        {title: "Concert 6"},
-        {title: "Concert 7"},
-        {title: "Concert 8"},
-        {title: "Concert 9"}
-      ]
-    };
+  handleOnClick = () => {
+    this.props.fetchSeats()
   }
 
   renderConcerts = () => {
-    return this.state.concerts.map(function(concert){
-      return <p><Concert title={concert.title}/></p>
-    })
+    return this.props.concerts.map(concert => <Concert key={concert.id} title={concert.title} handleOnClick={this.handleOnClick} />)
   }
 
   render() {
@@ -51,18 +25,15 @@ class ConcertsContainer extends Component {
         <div className="three columns">
           {this.renderConcerts()}
         </div>
-        <SeatMap concert={this.state.concerts[0]}/>
       </React.Fragment>
     )
   }
 }
 
+// <SeatMap concert={this.props.concerts[0]}/>
+
 const mapStateToProps = state => {
-  return { concerts: state.concerts }
+  return { concerts: state.concerts.data }
 }
 
-const mapDispatchToProps = dispatch => {
-  return { fetchConcerts: () => dispatch(fetchConcerts()) }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ConcertsContainer)
+export default connect(mapStateToProps, {fetchConcerts})(ConcertsContainer)

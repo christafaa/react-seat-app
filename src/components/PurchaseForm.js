@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { submitPurchase } from '../actions/seatmap';
+import { clearSelection } from '../actions/seats';
 
 class PurchaseForm extends Component {
 
@@ -20,6 +21,10 @@ class PurchaseForm extends Component {
     const seatIds = this.props.selectedSeats.map(seat => seat.id)
     const attendeeId = this.state.attendee
     this.props.submitPurchase(concertId, seatIds, attendeeId)
+    this.setState({
+      attendee: ""
+    })
+    this.props.clearSelection()
   }
 
   renderSelection = () => {
@@ -41,4 +46,4 @@ class PurchaseForm extends Component {
   }
 }
 
-export default connect(null, { submitPurchase })(PurchaseForm)
+export default connect(null, { submitPurchase, clearSelection })(PurchaseForm)

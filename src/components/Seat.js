@@ -4,31 +4,20 @@ import { addSelection, removeSelection } from '../actions/seats';
 
 class Seat extends Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      color: this.props.seat.attendee_id ? "grey" : "red"
-    }
-  }
-
-  handleOnClick = () => {
-    if (this.state.color === "red") {
-      this.setState({
-        color: "yellow"
-      })
+  handleOnClick = (event) => {
+    if (this.props.seat.attendee_id === null && event.target.style.backgroundColor === "red") {
+      event.target.style.backgroundColor = "yellow"
       this.props.addSelection(this.props.seat)
 
-    } else if (this.state.color === "yellow") {
-      this.setState({
-        color: "red"
-      })
+    } else if (this.props.seat.attendee_id === null && event.target.style.backgroundColor === "yellow") {
+      event.target.style.backgroundColor = "red"
       this.props.removeSelection(this.props.seat)
     }
   }
 
   render() {
     return (
-      <div onClick={this.handleOnClick} style={{backgroundColor: this.state.color}} className="seat">
+      <div onClick={this.handleOnClick} style={{backgroundColor: this.props.seat.attendee_id ? "grey" : "red"}} className="seat">
         {this.props.seat.number}
       </div>
     )

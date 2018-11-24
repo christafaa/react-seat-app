@@ -3,13 +3,13 @@ import Concert from '../components/Concert';
 import SeatMap from '../components/SeatMap';
 import { connect } from 'react-redux';
 import { fetchConcerts } from '../actions/concerts';
-import { fetchSeats } from '../actions/seats'
+import { fetchSeatmap } from '../actions/seatmap'
 
 class ConcertsContainer extends Component {
 
   componentDidMount() {
     this.props.fetchConcerts()
-    this.props.fetchSeats()
+    this.props.fetchSeatmap(1)
   }
 
   // handleOnClick = () => {
@@ -26,15 +26,17 @@ class ConcertsContainer extends Component {
         <div className="three columns">
           {this.renderConcerts()}
         </div>
+        <SeatMap concert={this.props.seatmap}/>
       </React.Fragment>
     )
   }
 }
 
-// <SeatMap concert={this.props.concerts[0]}/>
-
 const mapStateToProps = state => {
-  return { concerts: state.concerts.data }
+  return {
+    concerts: state.concerts.data,
+    seatmap: state.seatmap.data
+  }
 }
 
-export default connect(mapStateToProps, {fetchConcerts})(ConcertsContainer)
+export default connect(mapStateToProps, {fetchConcerts, fetchSeatmap})(ConcertsContainer)

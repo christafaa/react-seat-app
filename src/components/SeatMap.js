@@ -31,9 +31,7 @@ class SeatMap extends Component {
 }
 
 const mapStateToProps = state => {
-  return {
-    selectedSeats: state.selectedSeats
-  }
+  return { selectedSeats: state.selectedSeats }
 }
 
 export default connect(mapStateToProps)(SeatMap)

@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import Concert from '../components/Concert';
 import SeatMap from '../components/SeatMap';
+import { connect } from 'react-redux';
 
-export default class ConcertsContainer extends Component {
+class ConcertsContainer extends Component {
+
+  componentDidMount() {
+
+  }
 
   constructor(props) {
     super(props);
@@ -51,3 +56,13 @@ export default class ConcertsContainer extends Component {
     )
   }
 }
+
+const mapStateToProps = state => {
+  return { concerts: state.concerts }
+}
+
+const mapDispatchToProps = dispatch => {
+  return { fetchConcerts: () => dispatch(fetchConcerts()) }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ConcertsContainer)

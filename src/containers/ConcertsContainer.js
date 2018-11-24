@@ -9,11 +9,12 @@ class ConcertsContainer extends Component {
 
   componentDidMount() {
     this.props.fetchConcerts()
-  }
-
-  handleOnClick = () => {
     this.props.fetchSeats()
   }
+
+  // handleOnClick = () => {
+  //   this.props.fetchSeats()
+  // }
 
   renderConcerts = () => {
     return this.props.concerts.map(concert => <Concert key={concert.id} title={concert.title} handleOnClick={this.handleOnClick} />)

@@ -1,11 +1,13 @@
-export default function concertReducer(state = { data: [] }, action) {
+export default function seatReducer(state = {
+  selectedSeats: []
+}, action) {
 
   switch(action.type) {
 
-    case 'FETCH_CONCERTS':
+    case 'FETCH_SEATMAP':
       return { ...state }
 
-    case 'ADD_CONCERTS':
+    case 'ADD_SEATMAP':
       return { data: action.payload }
 
     default:

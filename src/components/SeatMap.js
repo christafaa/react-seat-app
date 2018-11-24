@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Row from './Row';
 import PurchaseForm from './PurchaseForm';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 class SeatMap extends Component {
 
@@ -21,7 +22,7 @@ class SeatMap extends Component {
       <React.Fragment>
         <div className="seven columns">
           <h5><strong>Title: {this.props.concert.title}</strong></h5>
-          <p><button>Seat View</button> | <button>List View</button></p>
+          <p><button>Seat View</button> | <NavLink to={`/concerts/${this.props.concert.id}/attendees`}>List View</NavLink></p>
           Date: {this.props.concert.date}<br/>
           Location: {this.props.concert.location}<br/>
           {this.createRows()}

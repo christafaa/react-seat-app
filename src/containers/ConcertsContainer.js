@@ -7,31 +7,45 @@ import { fetchSeatmap } from '../actions/seatmap'
 
 class ConcertsContainer extends Component {
 
-  componentDidMount() {
-    this.props.fetchConcerts()
-    this.props.fetchSeatmap(1)
+  constructor(props) {
+    super(props)
+    this.state = {
+      selectedConcert: null
+    }
   }
 
-  // handleOnClick = () => {
-  //   this.props.fetchSeats()
-  // }
+  componentDidMount() {
+    this.props.fetchConcerts()
+  }
+
+  handleOnClick = id => {
+    this.setState({
+      selectedConcert: id
+    })
+    this.props.fetchSeats(id)
+  }
 
   renderConcerts = () => {
     return this.props.concerts.map(concert => <Concert key={concert.id} title={concert.title} handleOnClick={this.handleOnClick} />)
   }
 
-  checkProps = () => {
-    console.log(this.props)
+  renderSeatmap = () => {
+    if (this.state.selectedConcert === null) {
+      return <div/>
+    }
+    else {
+      return <SeatMap concert={this.props.seatmap}/>
+    }
   }
 
   render() {
     return (
       <React.Fragment>
         <div className="three columns">
+          <h5><em>select a concert</em></h5>
           {this.renderConcerts()}
         </div>
-          {this.checkProps()}
-          <SeatMap concert={this.props.seatmap}/>
+        {this.renderSeatmap()}
       </React.Fragment>
     )
   }

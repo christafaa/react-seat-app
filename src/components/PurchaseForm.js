@@ -17,13 +17,13 @@ class PurchaseForm extends Component {
   handleOnSubmit = event => {
     event.preventDefault()
     const concertId = this.props.concertId
-    const seatIds = this.props.selectedSeats
+    const seatIds = this.props.selectedSeats.map(seat => seat.id)
     const attendeeId = this.state.attendee
     this.props.submitPurchase(concertId, seatIds, attendeeId)
   }
 
   renderSelection = () => {
-    return this.props.selectedSeats.join(", ")
+    return this.props.selectedSeats.map(seat => seat.number).join(", ")
   }
 
   render() {

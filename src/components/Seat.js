@@ -16,13 +16,13 @@ class Seat extends Component {
       this.setState({
         color: "yellow"
       })
-      this.props.addSelection(this.props.seat.number)
+      this.props.addSelection(this.props.seat)
 
     } else if (this.state.color === "yellow") {
       this.setState({
         color: "red"
       })
-      this.props.removeSelection(this.props.seat.number)
+      this.props.removeSelection(this.props.seat)
     }
   }
 

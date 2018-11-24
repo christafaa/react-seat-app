@@ -3,7 +3,6 @@ import Row from './Row';
 import PurchaseForm from './PurchaseForm';
 import { connect } from 'react-redux';
 
-
 class SeatMap extends Component {
 
   createRows = () => {

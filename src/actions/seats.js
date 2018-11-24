@@ -1,9 +1,9 @@
-export const addSelection = number => {
-  return { type: 'ADD_SELECTION', payload: number };
+export const addSelection = seat => {
+  return { type: 'ADD_SELECTION', payload: seat };
 };
 
-export const removeSelection = number => {
-  return { type: 'REMOVE_SELECTION', payload: number };
+export const removeSelection = seat => {
+  return { type: 'REMOVE_SELECTION', payload: seat };
 };
 
 export const clearSelection = () => {

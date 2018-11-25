@@ -9,7 +9,7 @@ class App extends Component {
       <div className="App">
         <h1>Seat Manager</h1>
         <ConcertsContainer />
-        <Route path="/concerts/:id" render={({match}) => <SeatMapContainer seatmapId={match.params.id}/>} />
+        <Route exact path="/concerts/:id" render={({match}) => <SeatMapContainer seatmapId={match.params.id}/>} />
       </div>
     );
   }

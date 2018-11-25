@@ -17,6 +17,8 @@ class SeatMap extends Component {
     return rows
   }
 
+// MAKE SEAT COLOR KEY
+
   render() {
     return (
       <React.Fragment>

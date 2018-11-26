@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Concert from '../components/Concert';
 import { connect } from 'react-redux';
 import { fetchConcerts } from '../actions/concerts';
+import { clearSelection } from '../actions/seats';
 
 class ConcertsContainer extends Component {
 
@@ -9,8 +10,12 @@ class ConcertsContainer extends Component {
     this.props.fetchConcerts()
   }
 
+  handleClick = () => {
+    this.props.clearSelection()
+  }
+
   renderConcerts = () => {
-    return this.props.concerts.map(concert => <Concert key={concert.id} concert={concert} />)
+    return this.props.concerts.map(concert => <Concert key={concert.id} concert={concert} handleClick={this.handleClick} />)
   }
 
   render() {
@@ -29,4 +34,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { fetchConcerts })(ConcertsContainer)
+export default connect(mapStateToProps, { fetchConcerts, clearSelection })(ConcertsContainer)

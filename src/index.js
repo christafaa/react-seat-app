@@ -15,11 +15,11 @@ let store = createStore(rootReducer, applyMiddleware(thunk))
 
 ReactDOM.render(
   <React.Fragment>
-    <Provider store={store}>
-      <Router>
+    <Router>
+      <Provider store={store}>
         <Route path="/" component={App} />
-      </Router>
-    </Provider>
+      </Provider>
+    </Router>
   </React.Fragment>,
   document.getElementById('root')
 );

@@ -5,13 +5,9 @@ export default function seatReducer(state = {
   switch(action.type) {
 
     case 'FETCH_SEATMAP':
-      // return {
-      //   data: {title: "Loading", date: "Loading", venue: "Loading", seats: []}
-      // }
       return state
 
     case 'ADD_SEATMAP':
-      console.log(action.payload)
       return { data: action.payload }
 
     case 'PURCHASE_SEATS':

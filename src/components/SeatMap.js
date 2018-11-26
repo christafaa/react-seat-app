@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import Row from './Row';
-import PurchaseForm from './PurchaseForm';
-import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-class SeatMap extends Component {
+export default class SeatMap extends Component {
 
   createRows = () => {
     const rows = []
@@ -29,14 +27,7 @@ class SeatMap extends Component {
           Location: {this.props.concert.location}<br/>
           {this.createRows()}
         </div>
-        <PurchaseForm selectedSeats={this.props.selectedSeats.selectedSeats} concertId={this.props.concertId}/>
       </React.Fragment>
     )
   }
 }
-
-const mapStateToProps = state => {
-  return { selectedSeats: state.selectedSeats }
-}
-
-export default connect(mapStateToProps)(SeatMap)

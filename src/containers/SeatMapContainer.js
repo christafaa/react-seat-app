@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import SeatMap from '../components/SeatMap';
+import PurchaseForm from '../components/PurchaseForm';
 import { connect } from 'react-redux';
 import { fetchSeatmap } from '../actions/seatmap';
+import { clearSelection } from '../actions/seats';
 import { Route } from 'react-router-dom';
 
 class SeatMapContainer extends Component {
-
-  // try component will update
 
   render() {
     this.props.fetchSeatmap(this.props.seatmapId)
@@ -18,11 +18,11 @@ class SeatMapContainer extends Component {
     )
   }
 }
-// <Route exact path="/concerts/:id" render={({match}) => <SeatMapContainer seatmapId={match.params.id}/>} />
+        // <PurchaseForm selectedSeats={this.props.selectedSeats.selectedSeats} concertId={this.props.concertId}/>
 const mapStateToProps = state => {
   return {
     seatmap: state.seatmap.data
   }
 }
 
-export default connect(mapStateToProps, { fetchSeatmap })(SeatMapContainer)
+export default connect(mapStateToProps, { fetchSeatmap, clearSelection })(SeatMapContainer)

@@ -24,7 +24,8 @@ import Row from './Row';
   render() {
     return (
       <React.Fragment>
-        <div>
+        <div className="seven columns">
+          <h5><strong>Seat Map:</strong></h5>
           {this.createRows()}
           <PurchaseForm concertId={this.props.concertId}/>
         </div>

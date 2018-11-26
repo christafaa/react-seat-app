@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, Switch, withRouter } from 'react-router-dom';
 import SeatMap from '../components/SeatMap';
-import Attendee from '../components/Attendee';
+import AttendeesContainer from '../containers/AttendeesContainer';
 import { connect } from 'react-redux';
 
 class SeatMapContainer extends Component {
+//move display content to new component
 
   render() {
     return (
@@ -18,13 +19,15 @@ class SeatMapContainer extends Component {
               <span>{" | "}</span>
               <NavLink to={`/concerts/${this.props.seatmap.id}/attendees`}>
                 List View
-              </NavLink>
-            <br/>Date: {this.props.seatmap.date}<br/>
+              </NavLink><br/>
+            Date: {this.props.seatmap.date}<br/>
             Location: {this.props.seatmap.location}<br/>
-            <Route exact path="/concerts/:id" render={({match}) => <SeatMap concert={this.props.seatmap} concertId={match.params.id} selectedSeats={this.props.selectedSeats}/>}/>
-            <Route exact path="/concerts/:id/attendees" render={({match}) => <Attendee concertId={match.params.id}/>}/>
           </div>
         }
+        <Switch>
+          <Route exact path="/concerts/:id" render={({match}) => <SeatMap concert={this.props.seatmap} concertId={match.params.id} selectedSeats={this.props.selectedSeats}/>}/>
+          <Route exact path="/concerts/:id/attendees" render={({match}) => <AttendeesContainer concertId={match.params.id}/>}/>
+        </Switch>
       </React.Fragment>
     )
   }
@@ -36,4 +39,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(SeatMapContainer)
+export default withRouter(connect(mapStateToProps)(SeatMapContainer))

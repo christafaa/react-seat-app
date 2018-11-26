@@ -25,11 +25,12 @@ class AttendeesContainer extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div className="seven columns">
+        <h5><strong>Attendees List:</strong></h5>
         <ul>
           {this.renderAttendees()}
         </ul>
-      </React.Fragment>
+      </div>
     )
   }
 }

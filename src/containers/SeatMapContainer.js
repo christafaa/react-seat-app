@@ -8,7 +8,7 @@ import { fetchSeatmap } from '../actions/seatmap';
 class SeatMapContainer extends Component {
 
   componentDidMount() {
-    this.props.fetchSeatmap(this.props.seatmapId)
+    // this.props.fetchSeatmap(this.props.seatmapId)
   }
 
   // shouldComponentUpdate(nextProps, nextState) {
@@ -25,14 +25,11 @@ class SeatMapContainer extends Component {
   render() {
     return (
       <div className="seat-map">
-        <Route exact path="/concerts/:id" render={({match}) => <SeatMap concert={this.props.seatmap} concertId={this.props.seatmapId}/>} />
-
+        <Route exact path="/concerts/:id" render={({match}) => <SeatMap concert={this.props.seatmap} concertId={match.params.id}/>} />
       </div>
     )
   }
 }
-
-
 
 const mapStateToProps = state => {
   return {

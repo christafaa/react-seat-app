@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
-import PurchaseForm from '../components/PurchaseForm';
+// import PurchaseForm from '../components/PurchaseForm';
 import Row from './Row';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-
 import { fetchSeatmap } from '../actions/seatmap';
 
  class SeatMap extends Component {
 
-  // componentDidMount() {
-  //   this.props.fetchSeatmap(this.props.concertId)
-  // }
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.props.concert !== nextProps.concert
+  }
 
   createRows = () => {
     const rows = []
@@ -34,11 +33,13 @@ import { fetchSeatmap } from '../actions/seatmap';
           Date: {this.props.concert.date}<br/>
           Location: {this.props.concert.location}<br/>
           {this.createRows()}
-          <PurchaseForm selectedSeats={this.props.selectedSeats} concertId={this.props.seatmapId}/>
         </div>
       </React.Fragment>
     )
   }
 }
+
+// <PurchaseForm selectedSeats={this.props.selectedSeats} concertId={this.props.seatmapId}/>
+
 
 export default connect(null, {fetchSeatmap})(SeatMap)

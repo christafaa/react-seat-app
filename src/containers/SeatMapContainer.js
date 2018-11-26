@@ -8,7 +8,7 @@ class SeatMapContainer extends Component {
   render() {
     return (
       <div className="seat-map">
-        <Route exact path="/concerts/:id" render={({match}) => <SeatMap concert={this.props.seatmap} concertId={match.params.id}/>} />
+        <Route exact path="/concerts/:id" render={({match}) => <SeatMap concert={this.props.seatmap} concertId={match.params.id} selectedSeats={this.props.selectedSeats}/>}/>
       </div>
     )
   }
@@ -16,7 +16,7 @@ class SeatMapContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    seatmap: state.seatmap.data,
+    seatmap: state.seatmap.data
   }
 }
 

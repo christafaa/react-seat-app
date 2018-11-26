@@ -1,17 +1,17 @@
 export default function seatReducer(state = {
-  selectedSeats: []
+  data: []
 }, action) {
 
   switch(action.type) {
 
     case 'ADD_SELECTION':
-      return { selectedSeats: [...state.selectedSeats, action.payload] }
+      return { data: [...state.data, action.payload] }
 
     case 'REMOVE_SELECTION':
-      return { selectedSeats: state.selectedSeats.filter(seat => seat !== action.payload) }
+      return { data: state.data.filter(seat => seat !== action.payload) }
 
     case 'CLEAR_SELECTIONS':
-      return { selectedSeats: [] }
+      return { data: [] }
 
     default:
       return state;

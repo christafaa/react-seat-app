@@ -31,7 +31,7 @@ import { NavLink } from 'react-router-dom';
           Date: {this.props.concert.date}<br/>
           Location: {this.props.concert.location}<br/>
           {this.createRows()}
-          <PurchaseForm selectedSeats={this.props.selectedSeats} concertId={this.props.concertId}/>
+          <PurchaseForm concertId={this.props.concertId}/>
         </div>
       </React.Fragment>
     )

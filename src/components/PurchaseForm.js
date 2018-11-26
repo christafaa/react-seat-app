@@ -33,7 +33,7 @@ class PurchaseForm extends Component {
 
   render() {
     return (
-      <div>
+      <div><br/>
         <h5><strong>Purchase Form</strong></h5>
         <form onSubmit={this.handleOnSubmit}>
           Attendee Name: <input type="text" value={this.state.attendee} onChange={this.handleOnChange} /><br/>

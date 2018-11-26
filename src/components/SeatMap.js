@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PurchaseForm from '../components/PurchaseForm';
 import Row from './Row';
-import { NavLink } from 'react-router-dom';
 
  export default class SeatMap extends Component {
 
@@ -25,11 +24,7 @@ import { NavLink } from 'react-router-dom';
   render() {
     return (
       <React.Fragment>
-        <div className="seven columns">
-          <h5><strong>Title: {this.props.concert.title}</strong></h5>
-          <p><button>Seat View</button> | <NavLink to={`/concerts/${this.props.concert.id}/attendees`}>List View</NavLink></p>
-          Date: {this.props.concert.date}<br/>
-          Location: {this.props.concert.location}<br/>
+        <div>
           {this.createRows()}
           <PurchaseForm concertId={this.props.concertId}/>
         </div>

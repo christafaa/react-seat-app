@@ -1,11 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Attendee extends Component {
-  render() {
-    return (
-      <div>
-        <li>{this.props.name}</li>
-      </div>
-    )
-  }
+export default function Attendee(props) {
+  return <li>{props.name}</li>
 }

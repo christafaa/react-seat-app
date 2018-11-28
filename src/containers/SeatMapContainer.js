@@ -25,8 +25,8 @@ class SeatMapContainer extends Component {
           </div>
         }
         <Switch>
-          <Route exact path="/concerts/:id" render={({match}) => <SeatMap concert={this.props.seatmap} concertId={match.params.id} selectedSeats={this.props.selectedSeats}/>}/>
-          <Route exact path="/concerts/:id/attendees" render={({match}) => <AttendeesContainer concertId={match.params.id}/>}/>
+          <Route exact path="/concerts/:id" render={() => <SeatMap concert={this.props.seatmap} concertId={this.props.seatmap.id} selectedSeats={this.props.selectedSeats}/>}/>
+          <Route exact path="/concerts/:id/attendees" render={() => <AttendeesContainer concertId={this.props.seatmap.id}/>}/>
         </Switch>
       </React.Fragment>
     )

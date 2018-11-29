@@ -4,10 +4,6 @@ import Row from './Row';
 
  export default class SeatMap extends Component {
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.props.concert !== nextProps.concert
-  }
-
   createRows = () => {
     const rows = []
     const seats = this.props.concert.seats.slice()

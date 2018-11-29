@@ -12,7 +12,7 @@ class SeatMapContainer extends Component {
       <React.Fragment>
         <SeatMapHeader seatmap={this.props.seatmap} />
         <Switch>
-          <Route exact path="/concerts/:id" render={() => <SeatMap concert={this.props.seatmap} concertId={this.props.seatmap.id} selectedSeats={this.props.selectedSeats}/>}/>
+          <Route exact path="/concerts/:id" render={() => <SeatMap concert={this.props.seatmap} concertId={this.props.seatmap.id}/>}/>
           <Route exact path="/concerts/:id/attendees" render={() => <AttendeesContainer concertId={this.props.seatmap.id}/>}/>
         </Switch>
       </React.Fragment>

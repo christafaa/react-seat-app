@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Route, NavLink, Switch, withRouter } from 'react-router-dom';
-import AttendeesContainer from '../containers/AttendeesContainer';
-
+import { NavLink } from 'react-router-dom';
 
 export default class SeatMapHeader extends Component {
   render() {

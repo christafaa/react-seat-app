@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, NavLink, Switch, withRouter } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import SeatMap from '../components/SeatMap';
 import SeatMapHeader from '../components/SeatMapHeader';
 import AttendeesContainer from '../containers/AttendeesContainer';

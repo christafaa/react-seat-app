@@ -15,8 +15,6 @@ import Row from './Row';
     return rows
   }
 
-// MAKE SEAT COLOR KEY
-
   render() {
     return (
       <React.Fragment>

@@ -1,6 +1,6 @@
 # README
 
-## Seat Manager - view a concert's seat map and assign seats to attendees through the interactive seat map.
+#### Seat Manager - view a concert's seat map and assign seats to attendees through the interactive seat map.
 
 Select a concert from the homepage to view that concert's page.<br />
 View a concert's attendee list by clicking on the concert's List View link.<br />

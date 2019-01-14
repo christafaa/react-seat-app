@@ -6,7 +6,7 @@ import Row from './Row';
 
   createRows = () => {
     const rows = []
-    const seats = this.props.concert.seats.slice()
+    const seats = this.props.concert.seats.sort((a, b) => parseInt(a.number) - parseInt(b.number)).slice()
     let rowNumber = 1
     while (seats.length > 1) {
       rows.push(<Row key={`${this.props.concert.title} row ${rowNumber}`} seats={seats.splice(0, 10)} />)

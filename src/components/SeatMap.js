@@ -21,7 +21,13 @@ import Row from './Row';
     return (
       <React.Fragment>
         <div className="seven columns">
-          <h5><strong>Seat Map:</strong></h5>
+          <div style={{borderBottom: "0.1rem solid"}}>
+            <h5 style={{display: "inline-block"}}><strong>Seat Map:</strong></h5>
+            <div style={{float: "right"}}>
+              <div className="key">Available:</div><div style={{backgroundColor: "red", display: "inline-block"}} className="seat"/>
+              <div className="key">Sold:</div><div style={{backgroundColor: "grey", display: "inline-block"}} className="seat"/>
+            </div>
+          </div>
           {this.createRows()}
           <PurchaseForm concertId={this.props.concertId}/>
         </div>

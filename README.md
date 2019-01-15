@@ -4,6 +4,8 @@
 
 [Try out a live demo!](https://arcane-basin-65541.herokuapp.com/)
 
+[Supported with a Rails RESTful API](https://github.com/christafaa/seat-manager-api)
+
 Select a concert from the homepage to view that concert's page.<br />
 View a concert's attendee list by clicking on the concert's List View link.<br />
 View a concert's seat map by clicking on the concert's Seat View link.<br />
